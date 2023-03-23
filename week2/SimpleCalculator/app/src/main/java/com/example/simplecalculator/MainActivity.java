@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     Integer Operand0;
     Integer Operand1;
     String Mode;
+    int inputMode;
     TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         Operand0 = 0;
         Operand1 = 0;
         Mode = "None";
+        inputMode = 0;
         textView = (TextView) findViewById(R.id.textView);
         for(int i = 0; i< 10;i++)
         {
@@ -35,9 +37,10 @@ public class MainActivity extends AppCompatActivity {
             thisButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(textView.getText().toString().equals("Welcome"))
+                    if(textView.getText().toString().equals("Welcome") ||inputMode == 0)
                     {
                         textView.setText("");
+                        inputMode = 1;
                     }
                     textView.append(thisButton.getText());
                 }
@@ -84,7 +87,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 textView.setText(result);
                 Operand0 = 0;
-                Operand1 = 1;
+                Operand1 = 0;
+                inputMode = 0;
                 Mode = "None";
             }
         });
@@ -93,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Operand0 = 0;
-                Operand1 = 1;
+                Operand1 = 0;
                 Mode = "None";
                 textView.setText("");
             }
