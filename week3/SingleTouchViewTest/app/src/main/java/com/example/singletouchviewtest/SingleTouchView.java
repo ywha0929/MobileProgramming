@@ -63,7 +63,6 @@ public class SingleTouchView extends View {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 Path thisPath = new Path();
-
                 thisPath.moveTo(eventX,eventY);
                 listPath.add(thisPath);
                 Paint thisPaint = new Paint();
